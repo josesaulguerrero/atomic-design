@@ -13,10 +13,10 @@ export class IconComponent {
 	public altText = 'Custom Icon';
 
 	@Input()
-	public width? = '50px';
+	public width? = 50;
 
 	@Input()
-	public height? = '50px';
+	public height? = 50;
 
 	public constructor() {}
 }
