@@ -1,4 +1,9 @@
 .text {
-	font-size: 16px;
-	font-weight: normal;
+	font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
+	overflow: inherit;
+	text-overflow: inherit;
+	white-space: inherit;
+	color: inherit;
 }
