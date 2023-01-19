@@ -1,3 +1,8 @@
 <section class="chats">
-	<app-chat-preview *ngFor="let chat of chats" [chat]="chat"></app-chat-preview>
+	<app-search-bar class="search-bar" [barControl]="searchBar"></app-search-bar>
+	<app-chat-preview
+		class="chat-preview"
+		*ngFor="let chat of chats"
+		[chat]="chat"
+	></app-chat-preview>
 </section>

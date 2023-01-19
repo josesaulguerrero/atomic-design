@@ -1,6 +1,7 @@
 import { ChatPreview } from 'src/app/modules/core/models/chat.model';
 
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-chats',
@@ -8,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./chats.component.scss'],
 })
 export class ChatsComponent implements OnInit {
-	public chats: ChatPreview[] = [];
+	public searchBar = new FormControl('', { nonNullable: true });
+
+	public _chats: ChatPreview[] = [];
+
+	public get chats(): ChatPreview[] {
+		return this._chats.filter((chat) =>
+			chat.title
+				.toLocaleLowerCase()
+				.includes(this.searchBar.value.toLocaleLowerCase()),
+		);
+	}
 
 	public constructor() {}
 
 	public ngOnInit(): void {
-		this.chats = [
+		this._chats = [
 			{
 				title: 'Alicia Torreaux',
 				avatar: 'https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg',
@@ -44,5 +55,7 @@ export class ChatsComponent implements OnInit {
 				},
 			},
 		];
+
+		this.searchBar.valueChanges.subscribe((value) => {});
 	}
 }
