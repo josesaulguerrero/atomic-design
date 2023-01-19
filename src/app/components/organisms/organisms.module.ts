@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-
+import { MoleculesModule } from '../molecules/molecules.module';
+import { ChatsComponent } from './chats/chats.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+	declarations: [ChatsComponent],
+	imports: [CommonModule, MoleculesModule],
+	exports: [ChatsComponent],
 })
-export class OrganismsModule { }
+export class OrganismsModule {}
