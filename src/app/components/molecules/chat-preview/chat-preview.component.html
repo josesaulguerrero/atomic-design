@@ -1,0 +1,26 @@
+<article class="chat-preview">
+	<header class="header">
+		<app-icon
+			[src]="chat.avatar"
+			[altText]="chat.title"
+			[width]="50"
+			[height]="50"
+		></app-icon>
+	</header>
+	<section class="content">
+		<app-title size="small" [text]="chat.title"></app-title>
+		<app-text [text]="chat.metadata.lastMessagePreview"></app-text>
+	</section>
+	<footer class="extras">
+		<app-text
+			[text]="
+				(chat.metadata.lastMessageDate.getHours().toString()
+					| date : 'shortTime')!
+			"
+		></app-text>
+		<app-text
+			class="message-count"
+			[text]="chat.metadata.receivedMessagesCount.toString()"
+		></app-text>
+	</footer>
+</article>
