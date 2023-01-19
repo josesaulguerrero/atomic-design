@@ -54,6 +54,25 @@ export class ChatsComponent implements OnInit {
 					receivedMessagesCount: 4,
 				},
 			},
+			{
+				title: 'Joseph Tyler',
+				avatar: 'https://pbs.twimg.com/media/BduTxWnIUAAKT_5.jpg',
+				metadata: {
+					lastMessageDate: new Date(),
+					lastMessagePreview: 'How is mom doing?',
+					receivedMessagesCount: 2,
+				},
+			},
+			{
+				title: 'Tanya Towers',
+				avatar:
+					'https://im.vsco.co/aws-us-west-2/87a614/5015405/5cf87a7ebf7e2e3d24b10d50/vsco5cf87a8138f78.jpg?w=412&dpr=2.625',
+				metadata: {
+					lastMessageDate: new Date(),
+					lastMessagePreview: 'I know, right?!',
+					receivedMessagesCount: 5,
+				},
+			},
 		];
 
 		this.searchBar.valueChanges.subscribe((value) => {});
