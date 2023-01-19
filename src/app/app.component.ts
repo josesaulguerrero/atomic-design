@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-root',
-	template: `<app-search-bar></app-search-bar>`,
+	template: `<app-main></app-main>`,
 	styles: [],
 })
 export class AppComponent {}

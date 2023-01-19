@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MoleculesModule } from './components/molecules/molecules.module';
+import { PagesModule } from './components/pages/pages.module';
 import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { CoreModule } from './modules/core/core.module';
 		AppRoutingModule,
 		FontAwesomeModule,
 		CoreModule,
-		MoleculesModule,
+		PagesModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
