@@ -28,6 +28,12 @@
 	gap: 10px;
 }
 
+.content .message-preview {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .extras {
 	display: flex;
 	flex-direction: column;

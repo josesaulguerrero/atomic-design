@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ChatPreview } from '../../../modules/core/models/chat.model';
 
@@ -8,6 +8,7 @@ import { ChatPreview } from '../../../modules/core/models/chat.model';
 	styleUrls: ['./chat-preview.component.scss'],
 })
 export class ChatPreviewComponent {
+	@Input()
 	public chat!: ChatPreview;
 
 	public constructor() {}
