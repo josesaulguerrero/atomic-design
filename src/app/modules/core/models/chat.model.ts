@@ -1,3 +1,5 @@
+import { Message } from './message.model';
+
 export interface ChatMetadata {
 	lastMessagePreview: string;
 	lastMessageDate: Date;
@@ -12,9 +14,11 @@ export interface ChatPreview {
 
 export interface Chat {
 	details: ChatDetails;
+	messages: Message[];
 }
 
 export interface ChatDetails {
+	userId: string;
 	avatar: string;
 	name: string;
 	lastTimeOnline: Date;

@@ -1,0 +1,14 @@
+<section class="chat">
+	<app-chat-header [chatDetails]="chat.details"></app-chat-header>
+	<section class="messages">
+		<app-message
+			*ngFor="let message of chat.messages"
+			[message]="message"
+			[incoming]="message.receiverId === localUserId"
+		></app-message>
+	</section>
+	<app-message-compose-box
+		[recipientId]="chat.details.userId"
+		(messageSubmit)="onMessageSubmit($event)"
+	></app-message-compose-box>
+</section>

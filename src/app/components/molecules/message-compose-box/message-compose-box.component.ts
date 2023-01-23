@@ -1,6 +1,6 @@
 import { Message } from 'src/app/modules/core/models/message.model';
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,9 @@ import { FormControl, Validators } from '@angular/forms';
 export class MessageComposeBoxComponent {
 	@Output()
 	public messageSubmit: EventEmitter<Message>;
+
+	@Input()
+	public recipientId!: string;
 
 	public readonly iconSize = 20;
 
@@ -34,6 +37,7 @@ export class MessageComposeBoxComponent {
 		const message: Message = {
 			content: this.messageControl.value,
 			timestamp: new Date(),
+			receiverId: this.recipientId,
 		};
 
 		this.messageSubmit.emit(message);
