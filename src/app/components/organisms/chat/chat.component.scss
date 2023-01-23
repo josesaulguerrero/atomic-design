@@ -1,0 +1,39 @@
+:host {
+	width: 100%;
+	height: 100%;
+}
+
+.chat {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.chat-header,
+.chat-composer {
+	width: 100%;
+}
+
+.messages {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 30px 20px;
+	overflow: hidden auto;
+}
+
+.message {
+	box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.2);
+}
+
+.message.incoming {
+	align-self: flex-end;
+}
+
+.message.outgoing {
+	align-self: flex-start;
+}

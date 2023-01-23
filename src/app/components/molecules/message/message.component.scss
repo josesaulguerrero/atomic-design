@@ -1,9 +1,15 @@
+:host {
+	max-width: 80%;
+	border-radius: 10px;
+}
+
 .message {
 	--incoming-message-bg: #4ccd5d;
 	--outgoing-message-bg: var(--app-light-bg);
 
 	width: fit-content;
-	max-width: 80%;
+	padding: 10px;
+	border-radius: inherit;
 }
 
 .message.incoming {
@@ -15,7 +21,7 @@
 }
 
 .message-content {
-	font-size: 15px;
+	font-size: 13px;
 }
 
 .message-timestamp {
