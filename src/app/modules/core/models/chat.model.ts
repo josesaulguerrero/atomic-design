@@ -9,3 +9,13 @@ export interface ChatPreview {
 	title: string;
 	metadata: ChatMetadata;
 }
+
+export interface Chat {
+	details: ChatDetails;
+}
+
+export interface ChatDetails {
+	avatar: string;
+	name: string;
+	lastTimeOnline: Date;
+}

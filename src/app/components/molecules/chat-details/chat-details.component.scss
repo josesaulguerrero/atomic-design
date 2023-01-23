@@ -1,0 +1,25 @@
+.chat-details {
+	width: 100%;
+	max-width: 300px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+}
+
+.avatar {
+	border-radius: 50%;
+}
+
+.text-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 5px;
+}
+
+.last-time-online {
+	font-size: 14px;
+}
