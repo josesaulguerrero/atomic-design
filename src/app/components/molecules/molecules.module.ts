@@ -7,6 +7,7 @@ import { ChatDetailsComponent } from './chat-details/chat-details.component';
 import { ChatHeaderComponent } from './chat-header/chat-header.component';
 import { ChatPreviewComponent } from './chat-preview/chat-preview.component';
 import { MessageComposeBoxComponent } from './message-compose-box/message-compose-box.component';
+import { MessageComponent } from './message/message.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 		ChatActionsComponent,
 		ChatHeaderComponent,
 		MessageComposeBoxComponent,
+		MessageComponent,
 	],
 	imports: [CommonModule, AtomsModule],
 	exports: [
@@ -26,6 +28,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 		ChatActionsComponent,
 		ChatHeaderComponent,
 		MessageComposeBoxComponent,
+		MessageComponent,
 	],
 })
 export class MoleculesModule {}
