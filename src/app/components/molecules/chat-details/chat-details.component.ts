@@ -1,6 +1,6 @@
-import { ChatDetails } from 'src/app/modules/core/models/chat.model';
-
 import { Component, Input } from '@angular/core';
+
+import { ChatDetails } from '../../../modules/core/models/chat.model';
 
 @Component({
 	selector: 'app-chat-details',
