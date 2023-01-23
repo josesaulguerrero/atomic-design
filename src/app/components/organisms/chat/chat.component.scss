@@ -31,9 +31,9 @@
 }
 
 .message.incoming {
-	align-self: flex-end;
+	align-self: flex-start;
 }
 
 .message.outgoing {
-	align-self: flex-start;
+	align-self: flex-end;
 }

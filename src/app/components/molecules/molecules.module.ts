@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AtomsModule } from '../atoms/atoms.module';
 import { ChatActionsComponent } from './chat-actions/chat-actions.component';
@@ -20,7 +21,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 		MessageComposeBoxComponent,
 		MessageComponent,
 	],
-	imports: [CommonModule, AtomsModule],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, AtomsModule],
 	exports: [
 		SearchBarComponent,
 		ChatPreviewComponent,

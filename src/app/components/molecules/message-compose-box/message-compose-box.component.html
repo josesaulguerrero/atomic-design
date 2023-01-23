@@ -13,7 +13,7 @@
 		[width]="iconSize"
 		[height]="iconSize"
 	></app-clickable-icon>
-	<form class="compose-box-form" (submit)="onMessageSubmit()">
+	<form class="compose-box-form" (ngSubmit)="onMessageSubmit()">
 		<app-text-input
 			class="message-input"
 			[control]="messageControl"

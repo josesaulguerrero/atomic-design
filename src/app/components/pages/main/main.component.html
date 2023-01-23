@@ -2,5 +2,10 @@
 	<app-inbox class="inbox"></app-inbox>
 </nav>
 <main class="main">
-	<app-chat class="chat" [chat]="chat" [localUserId]="localUserId"></app-chat>
+	<app-chat
+		class="chat"
+		[chat]="chat"
+		[localUserId]="localUserId"
+		(messageSubmit)="onMessageSubmit($event)"
+	></app-chat>
 </main>

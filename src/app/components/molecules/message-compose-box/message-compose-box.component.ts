@@ -41,5 +41,6 @@ export class MessageComposeBoxComponent {
 		};
 
 		this.messageSubmit.emit(message);
+		this.messageControl.reset();
 	}
 }

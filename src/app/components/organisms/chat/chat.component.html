@@ -3,7 +3,7 @@
 		class="chat-header"
 		[chatDetails]="chat.details"
 	></app-chat-header>
-	<section class="messages">
+	<section class="messages" #messagesList>
 		<app-message
 			class="message"
 			*ngFor="let message of chat.messages"

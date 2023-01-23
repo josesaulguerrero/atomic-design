@@ -40,4 +40,8 @@ export class MainComponent implements OnInit {
 			}),
 		);
 	}
+
+	public onMessageSubmit(message: Message): void {
+		this.chat.messages.push(message);
+	}
 }
