@@ -1,0 +1,30 @@
+<footer class="message-compose-box">
+	<app-clickable-icon
+		class="compose-box-icon"
+		src="https://cdn-icons-png.flaticon.com/512/158/158420.png"
+		altText="Emoji Menu"
+		[width]="iconSize"
+		[height]="iconSize"
+	></app-clickable-icon>
+	<app-clickable-icon
+		class="compose-box-icon"
+		src="https://cdn-icons-png.flaticon.com/512/2356/2356589.png"
+		altText="Emoji Menu"
+		[width]="iconSize"
+		[height]="iconSize"
+	></app-clickable-icon>
+	<form class="compose-box-form" (submit)="onMessageSubmit()">
+		<app-text-input
+			class="message-input"
+			[control]="messageControl"
+			placeholder="Type in a message."
+		></app-text-input>
+	</form>
+	<app-clickable-icon
+		class="compose-box-icon"
+		src="https://cdn-icons-png.flaticon.com/512/8840/8840275.png"
+		altText="Emoji Menu"
+		[width]="iconSize"
+		[height]="iconSize"
+	></app-clickable-icon>
+</footer>
