@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-	selector: 'app-chats',
-	templateUrl: './chats.component.html',
-	styleUrls: ['./chats.component.scss'],
+	selector: 'app-inbox',
+	templateUrl: './inbox.component.html',
+	styleUrls: ['./inbox.component.scss'],
 })
-export class ChatsComponent implements OnInit {
+export class InboxComponent implements OnInit {
 	public searchBar = new FormControl('', { nonNullable: true });
 
 	public _chats: ChatPreview[] = [];

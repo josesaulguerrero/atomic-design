@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AtomsModule } from '../atoms/atoms.module';
 import { MoleculesModule } from '../molecules/molecules.module';
-import { ChatsComponent } from './chats/chats.component';
+import { InboxComponent } from './inbox/inbox.component';
 
 @NgModule({
-	declarations: [ChatsComponent],
+	declarations: [InboxComponent],
 	imports: [CommonModule, MoleculesModule, AtomsModule],
-	exports: [ChatsComponent],
+	exports: [InboxComponent],
 })
 export class OrganismsModule {}
