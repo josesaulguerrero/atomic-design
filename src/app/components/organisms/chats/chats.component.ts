@@ -74,7 +74,5 @@ export class ChatsComponent implements OnInit {
 				},
 			},
 		];
-
-		this.searchBar.valueChanges.subscribe((value) => {});
 	}
 }
