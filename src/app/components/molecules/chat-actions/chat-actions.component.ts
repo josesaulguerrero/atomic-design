@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['./chat-actions.component.scss'],
 })
 export class ChatActionsComponent {
-	public readonly iconSize = 30;
+	public readonly iconSize = 20;
 
 	constructor() {}
 }
