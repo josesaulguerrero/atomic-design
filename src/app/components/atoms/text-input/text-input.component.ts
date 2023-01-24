@@ -18,6 +18,9 @@ export class TextInputComponent implements AtomicInput<string> {
 	@Input()
 	public control: FormControl<string>;
 
+	@Input()
+	public name?: string;
+
 	constructor(private readonly _formBuilder: NonNullableFormBuilder) {
 		this.placeholder = '';
 		this.required ??= false;

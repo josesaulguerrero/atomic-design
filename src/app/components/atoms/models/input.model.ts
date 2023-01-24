@@ -4,4 +4,5 @@ export interface AtomicInput<T> {
 	control: FormControl<T>;
 	placeholder: string;
 	required: boolean;
+	name?: string;
 }
