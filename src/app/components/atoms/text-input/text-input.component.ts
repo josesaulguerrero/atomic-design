@@ -8,7 +8,7 @@ import { AtomicInput } from '../models/input.model';
 	templateUrl: './text-input.component.html',
 	styleUrls: ['./text-input.component.scss'],
 })
-export class TextInputComponent implements AtomicInput {
+export class TextInputComponent implements AtomicInput<string> {
 	@Input()
 	public placeholder: string;
 
