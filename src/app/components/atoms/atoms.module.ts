@@ -7,6 +7,7 @@ import { IconComponent } from './icon/icon.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { TextComponent } from './text/text.component';
 import { TitleComponent } from './title/title.component';
+import { InputLabelComponent } from './input-label/input-label.component';
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { TitleComponent } from './title/title.component';
 		TitleComponent,
 		TextComponent,
 		ClickableIconComponent,
+  InputLabelComponent,
 	],
 	imports: [CommonModule, ReactiveFormsModule],
 	exports: [
