@@ -1,0 +1,10 @@
+<section class="auth-platforms">
+	<app-title size="large" text="Sign in with"></app-title>
+	<section class="auth-buttons">
+		<app-auth-button
+			(click)="signInWithGoogle()"
+			class="google-auth"
+			[authPlatform]="googlePlatform"
+		></app-auth-button>
+	</section>
+</section>

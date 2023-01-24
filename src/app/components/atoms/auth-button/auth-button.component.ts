@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-type AuthPlatform = {
+export type AuthPlatform = {
 	name: string;
 	iconSrc: string;
 };
