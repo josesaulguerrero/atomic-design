@@ -4,10 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ClickableIconComponent } from './clickable-icon/clickable-icon.component';
 import { IconComponent } from './icon/icon.component';
+import { InputLabelComponent } from './input-label/input-label.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { TextComponent } from './text/text.component';
 import { TitleComponent } from './title/title.component';
-import { InputLabelComponent } from './input-label/input-label.component';
 
 @NgModule({
 	declarations: [
@@ -16,7 +16,7 @@ import { InputLabelComponent } from './input-label/input-label.component';
 		TitleComponent,
 		TextComponent,
 		ClickableIconComponent,
-  InputLabelComponent,
+		InputLabelComponent,
 	],
 	imports: [CommonModule, ReactiveFormsModule],
 	exports: [
@@ -25,6 +25,7 @@ import { InputLabelComponent } from './input-label/input-label.component';
 		TitleComponent,
 		TextComponent,
 		ClickableIconComponent,
+		InputLabelComponent,
 	],
 })
 export class AtomsModule {}
