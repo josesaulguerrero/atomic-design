@@ -2,9 +2,10 @@
 	<app-title size="large" text="Sign in with"></app-title>
 	<section class="auth-buttons">
 		<app-auth-button
-			(click)="signInWithGoogle()"
-			class="google-auth"
-			[authPlatform]="googlePlatform"
+			class="auth-button"
+			*ngFor="let platform of authPlatforms"
+			(click)="login.emit(platform.name)"
+			[authPlatform]="platform"
 		></app-auth-button>
 	</section>
 </section>
