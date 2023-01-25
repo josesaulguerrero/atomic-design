@@ -34,7 +34,7 @@
 		class="btn btn-outline-dark"
 		type="button"
 		[disabled]="contactGroup.invalid && contactGroup.touched"
-		(click)="modal.close('save')"
+		(click)="onSaveContact()"
 	>
 		Save
 	</button>

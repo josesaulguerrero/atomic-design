@@ -29,7 +29,6 @@ export class InboxComponent implements OnInit {
 	}
 
 	public onAddContact(): void {
-		console.log('hello');
 		this.addContact.emit(true);
 	}
 

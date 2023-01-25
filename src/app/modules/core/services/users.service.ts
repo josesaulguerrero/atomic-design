@@ -1,7 +1,9 @@
+import { map, Observable, tap } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 import { Auth, User as FirebaseUser } from '@angular/fire/auth';
-import { CollectionReference, Firestore } from '@angular/fire/firestore';
-import { collection, doc, setDoc } from '@firebase/firestore';
+import { collectionData, CollectionReference, docData, Firestore } from '@angular/fire/firestore';
+import { collection, doc, getDoc, query, setDoc, where } from '@firebase/firestore';
 
 import { User } from '../models/user.model';
 
@@ -48,5 +50,18 @@ export class UserService {
 	public saveChanges(user: User) {
 		const userRef = doc(this._usersCollection, user.id);
 		return setDoc(userRef, user);
+	}
+
+	public userWithEmailExists(email: string) {
+		const existsQuery = query(
+			this._usersCollection,
+			where('email', '==', email),
+		);
+		const results = collectionData(existsQuery);
+
+		return results.pipe(
+			map((users) => users.at(0)),
+			map((user) => !!user),
+		);
 	}
 }

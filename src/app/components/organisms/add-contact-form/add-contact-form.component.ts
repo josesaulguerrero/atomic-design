@@ -22,4 +22,9 @@ export class AddContactFormComponent {
 			}),
 		});
 	}
+
+	public onSaveContact(): void {
+		if (this.contactGroup.invalid && this.contactGroup.touched) return;
+		this.modal.close(this.emailControl.value);
+	}
 }
