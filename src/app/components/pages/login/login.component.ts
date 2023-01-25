@@ -1,8 +1,8 @@
+import { AuthPlatform } from 'src/app/components/atoms/auth-button/auth-button.component';
 import { AuthenticationService } from 'src/app/modules/core/services/authentication.service';
 
 import { Component } from '@angular/core';
-
-import { AuthPlatform } from '../../atoms/auth-button/auth-button.component';
+import { Router } from '@angular/router';
 
 type LoginPlatform = AuthPlatform & {
 	onLogin: () => void;
@@ -16,7 +16,10 @@ type LoginPlatform = AuthPlatform & {
 export class LoginComponent {
 	public authPlatforms: LoginPlatform[];
 
-	public constructor(private readonly authService: AuthenticationService) {
+	public constructor(
+		private readonly _authService: AuthenticationService,
+		private readonly _router: Router,
+	) {
 		this.authPlatforms = [
 			{
 				iconSrc: 'https://i.postimg.cc/vHSLb94W/image.png',
@@ -27,8 +30,8 @@ export class LoginComponent {
 	}
 
 	public signInWithGoogle(): void {
-		this.authService.signInWithGoogle().subscribe((credentials) => {
-			console.log(credentials);
+		this._authService.signInWithGoogle().subscribe((user) => {
+			this._router.navigateByUrl('app/chat');
 		});
 	}
 
