@@ -1,0 +1,21 @@
+<header class="modal-header">
+	<app-title size="medium" text="Add Contact"></app-title>
+	<button
+		type="button"
+		class="btn-close"
+		aria-label="Close"
+		(click)="modal.dismiss('Cross click')"
+	></button>
+</header>
+<section class="modal-body">
+	<form></form>
+</section>
+<footer class="modal-footer">
+	<button
+		type="button"
+		class="btn btn-outline-dark"
+		(click)="modal.close('Save click')"
+	>
+		Save Contact
+	</button>
+</footer>

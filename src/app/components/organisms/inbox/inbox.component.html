@@ -1,9 +1,26 @@
-<section class="chats">
-	<app-title size="medium" text="Chats"></app-title>
-	<app-search-bar class="search-bar" [barControl]="searchBar"></app-search-bar>
-	<app-chat-preview
-		class="chat-preview"
-		*ngFor="let chat of chats"
-		[chat]="chat"
-	></app-chat-preview>
+<section class="inbox">
+	<header class="inbox-header">
+		<section class="actions">
+			<app-title class="header-title" size="medium" text="Chats"></app-title>
+			<app-clickable-icon
+				class="add-contact"
+				src="https://cdn-icons-png.flaticon.com/512/4175/4175032.png"
+				altText="Add Contact"
+				[width]="20"
+				[height]="20"
+				(userClick)="onAddContact()"
+			></app-clickable-icon>
+		</section>
+		<app-search-bar
+			class="search-bar"
+			[barControl]="searchBar"
+		></app-search-bar>
+	</header>
+	<section class="previews">
+		<app-chat-preview
+			class="chat-preview"
+			*ngFor="let chat of chats"
+			[chat]="chat"
+		></app-chat-preview>
+	</section>
 </section>

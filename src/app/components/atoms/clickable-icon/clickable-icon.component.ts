@@ -9,14 +9,14 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class ClickableIconComponent extends IconComponent {
 	@Output()
-	public click: EventEmitter<MouseEvent>;
+	public userClick: EventEmitter<MouseEvent>;
 
 	public constructor() {
 		super();
-		this.click = new EventEmitter<MouseEvent>();
+		this.userClick = new EventEmitter<MouseEvent>();
 	}
 
 	public handleClickEvent(event: MouseEvent): void {
-		this.click.emit(event);
+		this.userClick.emit(event);
 	}
 }

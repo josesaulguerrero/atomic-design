@@ -4,6 +4,11 @@ import { UserService } from 'src/app/modules/core/services/users.service';
 import { v4 as uuid } from 'uuid';
 
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import {
+    AddContactFormComponent
+} from '../../organisms/add-contact-form/add-contact-form.component';
 
 @Component({
 	selector: 'app-main',
@@ -24,10 +29,17 @@ export class MainComponent implements OnInit {
 		messages: this.buildMessageList(10),
 	};
 
-	public constructor(private readonly _userService: UserService) {}
+	public constructor(
+		private readonly _userService: UserService,
+		private readonly _modal: NgbModal,
+	) {}
 
 	public ngOnInit(): void {
 		console.log(this._userService.user);
+	}
+
+	public onAddContact(): void {
+		this._modal.open(AddContactFormComponent);
 	}
 
 	private buildMessageList(length: number): Message[] {

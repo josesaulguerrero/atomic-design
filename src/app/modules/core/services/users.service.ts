@@ -27,7 +27,6 @@ export class UserService {
 		private readonly _auth: Auth,
 		private readonly _firestore: Firestore,
 	) {
-		debugger;
 		this._usersCollection = collection(this._firestore, 'users');
 	}
 

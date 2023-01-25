@@ -5,6 +5,7 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { CoreModule } from './modules/core/core.module';
 		provideAuth(() => getAuth()),
 		provideFirestore(() => getFirestore()),
 		provideDatabase(() => getDatabase()),
+		NgbModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

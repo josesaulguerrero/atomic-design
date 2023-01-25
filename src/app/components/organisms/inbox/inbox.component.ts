@@ -1,6 +1,6 @@
 import { ChatPreview } from 'src/app/modules/core/models/chat.model';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,9 @@ import { FormControl } from '@angular/forms';
 	styleUrls: ['./inbox.component.scss'],
 })
 export class InboxComponent implements OnInit {
+	@Output()
+	public addContact: EventEmitter<boolean>;
+
 	public searchBar = new FormControl('', { nonNullable: true });
 
 	public _chats: ChatPreview[] = [];
@@ -21,7 +24,14 @@ export class InboxComponent implements OnInit {
 		);
 	}
 
-	public constructor() {}
+	public constructor() {
+		this.addContact = new EventEmitter();
+	}
+
+	public onAddContact(): void {
+		console.log('hello');
+		this.addContact.emit(true);
+	}
 
 	public ngOnInit(): void {
 		this._chats = [
