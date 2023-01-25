@@ -10,6 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
     AddContactFormComponent
 } from '../../organisms/add-contact-form/add-contact-form.component';
+import { PopupService } from '../../organisms/services/sweet-alert.service';
 
 @Component({
 	selector: 'app-main',
@@ -33,16 +34,25 @@ export class MainComponent {
 	public constructor(
 		private readonly _userService: UserService,
 		private readonly _modal: NgbModal,
+		private readonly _swal: PopupService,
 	) {}
 
 	public onAddContact(): void {
 		from(this._modal.open(AddContactFormComponent, {}).result)
 			.pipe(switchMap((email) => this._userService.userWithEmailExists(email)))
-			.subscribe({
-				next: (exists) => {
-					// if(!exists)
-				},
+			.subscribe((exists) => {
+				if (!exists) this.openErrorPopup();
 			});
+	}
+
+	private openErrorPopup(): void {
+		this._swal.openRequestPopup({
+			title: 'Error saving contact',
+			text: 'The user with the given Email could not be found.',
+			showCloseButton: true,
+			timer: 3000,
+			timerProgressBar: true,
+		});
 	}
 
 	public onMessageSubmit(message: Message): void {
