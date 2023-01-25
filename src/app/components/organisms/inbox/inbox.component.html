@@ -17,10 +17,16 @@
 		></app-search-bar>
 	</header>
 	<section class="previews">
-		<app-chat-preview
-			class="chat-preview"
-			*ngFor="let chat of chats"
-			[chat]="chat"
-		></app-chat-preview>
+		<ng-container *ngIf="filteredChats.length > 0; else emptyInbox">
+			<app-chat-preview
+				class="chat-preview"
+				*ngFor="let chat of filteredChats"
+				[chat]="chat"
+			></app-chat-preview>
+		</ng-container>
 	</section>
 </section>
+
+<ng-template #emptyInbox>
+	<app-title size="small" text="Start chatting..."></app-title>
+</ng-template>
