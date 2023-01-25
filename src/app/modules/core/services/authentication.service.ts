@@ -17,17 +17,8 @@ export class AuthenticationService {
 
 	public signInWithGoogle(): Observable<User> {
 		return from(signInWithPopup(this.auth, new GoogleAuthProvider())).pipe(
-			map((credentials) => {
-				return {
-					id: credentials.user.uid,
-					name: credentials.user.displayName!,
-					email: credentials.user.email!,
-					avatarUrl:
-						credentials.user.photoURL ||
-						'https://i.postimg.cc/KjcdKNPx/blank-profile-circle.png',
-				};
-			}),
-			tap(this._userService.setUser),
+			map(({ user }) => this._userService.mapFirebaseUserCredentials(user)),
+			tap((user) => this._userService.setUser(user)),
 		);
 	}
 }

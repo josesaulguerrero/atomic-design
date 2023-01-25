@@ -1,5 +1,6 @@
 import { Chat } from 'src/app/modules/core/models/chat.model';
 import { Message } from 'src/app/modules/core/models/message.model';
+import { UserService } from 'src/app/modules/core/services/users.service';
 import { v4 as uuid } from 'uuid';
 
 import { Component, OnInit } from '@angular/core';
@@ -23,9 +24,11 @@ export class MainComponent implements OnInit {
 		messages: this.buildMessageList(10),
 	};
 
-	constructor() {}
+	public constructor(private readonly _userService: UserService) {}
 
-	ngOnInit(): void {}
+	public ngOnInit(): void {
+		console.log(this._userService.user);
+	}
 
 	private buildMessageList(length: number): Message[] {
 		return Array.from(
