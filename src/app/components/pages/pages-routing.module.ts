@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
@@ -17,12 +17,12 @@ const routes: Routes = [
 			{
 				path: 'chat',
 				component: MainComponent,
-				canActivate: [() => redirectLoggedInTo('auth/login')],
+				...canActivate(() => redirectUnauthorizedTo('auth/login')),
 			},
 			{
 				path: 'auth/login',
 				component: LoginComponent,
-				canActivate: [() => redirectUnauthorizedTo('chat')],
+				...canActivate(() => redirectLoggedInTo('chat')),
 			},
 		],
 	},
