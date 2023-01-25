@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,8 +7,19 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 	templateUrl: './add-contact-form.component.html',
 	styleUrls: ['./add-contact-form.component.scss'],
 })
-export class AddContactFormComponent implements OnInit {
-	public constructor(public readonly modal: NgbActiveModal) {}
+export class AddContactFormComponent {
+	public contactGroup: FormGroup;
 
-	ngOnInit(): void {}
+	public get emailControl(): FormControl<string> {
+		return this.contactGroup.get('email') as FormControl<string>;
+	}
+
+	public constructor(public readonly modal: NgbActiveModal) {
+		this.contactGroup = new FormGroup({
+			email: new FormControl('', {
+				nonNullable: true,
+				validators: [Validators.required, Validators.email],
+			}),
+		});
+	}
 }

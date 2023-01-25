@@ -1,21 +1,41 @@
 <header class="modal-header">
-	<app-title size="medium" text="Add Contact"></app-title>
+	<app-title class="modal-title" size="medium" text="Add Contact"></app-title>
 	<button
 		type="button"
 		class="btn-close"
 		aria-label="Close"
-		(click)="modal.dismiss('Cross click')"
+		(click)="modal.dismiss('cross_click')"
 	></button>
 </header>
 <section class="modal-body">
-	<form></form>
+	<form class="contact-form" [formGroup]="contactGroup">
+		<section class="form-field">
+			<app-input-label
+				class="email-label"
+				forInputName="email"
+			></app-input-label>
+			<app-text-input
+				class="email-input"
+				[control]="emailControl"
+				placeholder="Enter the user's email: "
+				name="email"
+			></app-text-input>
+			<span
+				class="form-error"
+				*ngIf="emailControl.invalid && emailControl.touched"
+			>
+				Please enter a valid email.*
+			</span>
+		</section>
+	</form>
 </section>
 <footer class="modal-footer">
 	<button
-		type="button"
 		class="btn btn-outline-dark"
-		(click)="modal.close('Save click')"
+		type="button"
+		[disabled]="contactGroup.invalid && contactGroup.touched"
+		(click)="modal.close('save')"
 	>
-		Save Contact
+		Save
 	</button>
 </footer>

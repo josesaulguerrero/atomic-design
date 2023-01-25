@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AtomsModule } from '../atoms/atoms.module';
@@ -16,7 +17,14 @@ import { LoginFormComponent } from './login-form/login-form.component';
 		LoginFormComponent,
 		AddContactFormComponent,
 	],
-	imports: [CommonModule, MoleculesModule, AtomsModule, NgbModalModule],
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MoleculesModule,
+		AtomsModule,
+		NgbModalModule,
+	],
 	exports: [
 		InboxComponent,
 		ChatComponent,
