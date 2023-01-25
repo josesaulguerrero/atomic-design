@@ -18,7 +18,8 @@ export class AuthenticationService {
 	public signInWithGoogle(): Observable<User> {
 		return from(signInWithPopup(this.auth, new GoogleAuthProvider())).pipe(
 			map(({ user }) => this._userService.mapFirebaseUserCredentials(user)),
-			tap((user) => this._userService.setUser(user)),
+			tap(this._userService.setUser),
+			tap((user) => this._userService.saveChanges(user)),
 		);
 	}
 }
