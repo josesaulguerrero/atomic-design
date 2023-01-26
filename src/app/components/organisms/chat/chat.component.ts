@@ -23,6 +23,13 @@ export class ChatComponent implements AfterViewInit {
 	@ViewChild('messagesList')
 	public messagesList!: ElementRef<HTMLElement>;
 
+	public get sortedMessages(): Message[] {
+		return this.chat.messages.sort((a, b) => {
+			debugger;
+			return a.timestamp - b.timestamp;
+		});
+	}
+
 	public constructor() {
 		this.messageSubmit = new EventEmitter();
 	}

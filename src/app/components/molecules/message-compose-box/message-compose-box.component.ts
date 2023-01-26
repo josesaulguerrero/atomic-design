@@ -36,7 +36,7 @@ export class MessageComposeBoxComponent {
 
 		const message: Message = {
 			content: this.messageControl.value,
-			timestamp: new Date(),
+			timestamp: Date.now(),
 			receiverId: this.recipientId,
 		};
 

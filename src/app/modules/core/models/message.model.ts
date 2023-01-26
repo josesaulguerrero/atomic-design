@@ -1,5 +1,5 @@
 export interface Message {
 	content: string;
-	timestamp: Date;
+	timestamp: number;
 	receiverId: string;
 }

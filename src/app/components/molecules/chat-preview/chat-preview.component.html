@@ -2,29 +2,27 @@
 	<header class="header">
 		<app-icon
 			class="avatar"
-			[src]="chat.avatar"
-			[altText]="chat.title"
+			src="https://i.postimg.cc/KjcdKNPx/blank-profile-circle.png"
+			[altText]="chat.details.name"
 			[width]="50"
 			[height]="50"
 		></app-icon>
 	</header>
 	<section class="content">
-		<app-title size="small" [text]="chat.title"></app-title>
+		<app-title size="small" [text]="chat.details.name"></app-title>
 		<app-text
+			*ngIf="chat.metadata.lastMessagePreview"
 			class="message-preview"
 			[text]="chat.metadata.lastMessagePreview"
 		></app-text>
 	</section>
 	<footer class="extras">
 		<app-text
+			*ngIf="chat.metadata.lastMessageDate"
 			[text]="
 				(chat.metadata.lastMessageDate.getHours().toString()
 					| date : 'shortTime')!
 			"
-		></app-text>
-		<app-text
-			class="message-count"
-			[text]="chat.metadata.receivedMessagesCount.toString()"
 		></app-text>
 	</footer>
 </article>

@@ -1,10 +1,16 @@
 <nav class="sidebar">
-	<app-inbox class="inbox" (addContact)="onAddContact()"></app-inbox>
+	<app-inbox
+		class="inbox"
+		[chats]="chats"
+		(addContact)="onAddContact()"
+		(switchChat)="onSwitchChat($event)"
+	></app-inbox>
 </nav>
 <main class="main">
 	<app-chat
+		*ngIf="!!chats && chats.length > 0"
 		class="chat"
-		[chat]="chat"
+		[chat]="chats.at(0)!"
 		[localUserId]="localUserId"
 		(messageSubmit)="onMessageSubmit($event)"
 	></app-chat>

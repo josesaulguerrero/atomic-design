@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ChatPreview } from '../../../modules/core/models/chat.model';
+import { Chat } from '../../../modules/core/models/chat.model';
 
 @Component({
 	selector: 'app-chat-preview',
@@ -9,7 +9,7 @@ import { ChatPreview } from '../../../modules/core/models/chat.model';
 })
 export class ChatPreviewComponent {
 	@Input()
-	public chat!: ChatPreview;
+	public chat!: Chat;
 
 	public constructor() {}
 }

@@ -1,16 +1,12 @@
 <section class="chat-details" role="button">
 	<app-icon
 		class="avatar"
-		[src]="chatDetails.avatar"
+		src="https://i.postimg.cc/KjcdKNPx/blank-profile-circle.png"
 		altText="{{ chatDetails.name }} avatar"
 		[width]="50"
 		[height]="50"
 	></app-icon>
 	<div class="text-content">
 		<app-title size="small" [text]="chatDetails.name"></app-title>
-		<app-text
-			class="last-time-online"
-			[text]="(chatDetails.lastTimeOnline.toDateString() | date : 'medium')!"
-		></app-text>
 	</div>
 </section>

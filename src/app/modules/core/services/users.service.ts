@@ -1,9 +1,9 @@
-import { map, Observable, tap } from 'rxjs';
+import { from, map, Observable, of, switchMap } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import { Auth, User as FirebaseUser } from '@angular/fire/auth';
-import { collectionData, CollectionReference, docData, Firestore } from '@angular/fire/firestore';
-import { collection, doc, getDoc, query, setDoc, where } from '@firebase/firestore';
+import { collectionData, CollectionReference, Firestore, getDocs } from '@angular/fire/firestore';
+import { collection, doc, query, setDoc, where } from '@firebase/firestore';
 
 import { User } from '../models/user.model';
 
@@ -15,14 +15,12 @@ export class UserService {
 
 	private readonly _usersCollection: CollectionReference;
 
-	private isAuthenticated(): boolean {
-		return !!this._user;
+	public get user(): User {
+		return this.mapFirebaseUserCredentials(this._auth.currentUser!);
 	}
 
-	public get user() {
-		return (
-			this._user || this.mapFirebaseUserCredentials(this._auth.currentUser!)
-		);
+	public syncedUser(): Promise<User | null> {
+		return this.findUserByEmail(this._auth.currentUser?.email!);
 	}
 
 	public constructor(
@@ -44,24 +42,43 @@ export class UserService {
 			avatarUrl:
 				user.photoURL ||
 				'https://i.postimg.cc/KjcdKNPx/blank-profile-circle.png',
+			chats: [],
 		};
 	}
 
-	public saveChanges(user: User) {
+	public saveChanges(user: User): void {
 		const userRef = doc(this._usersCollection, user.id);
-		return setDoc(userRef, user);
+		setDoc(userRef, user);
 	}
 
-	public userWithEmailExists(email: string) {
-		const existsQuery = query(
-			this._usersCollection,
-			where('email', '==', email),
-		);
-		const results = collectionData(existsQuery);
+	public findUserByEmail(email: string): Promise<User | null> {
+		const findQuery = query(this._usersCollection, where('email', '==', email));
+		const results = getDocs(findQuery);
+
+		return results.then((documents) => {
+			return (documents.docs.at(0)?.data() as User) || null;
+		});
+	}
+
+	public findUserById(id: string): Promise<User | null> {
+		const findQuery = query(this._usersCollection, where('id', '==', id));
+		const results = getDocs(findQuery);
+
+		return results.then((documents) => {
+			return (documents.docs.at(0)?.data() as User) || null;
+		});
+	}
+
+	public findUserByEmailAndListenToChanges(
+		email: string,
+	): Observable<User | null> {
+		const findQuery = query(this._usersCollection, where('email', '==', email));
+		const results = collectionData(findQuery);
 
 		return results.pipe(
-			map((users) => users.at(0)),
-			map((user) => !!user),
+			map((users) => {
+				return (users.at(0) as User) || null;
+			}),
 		);
 	}
 }

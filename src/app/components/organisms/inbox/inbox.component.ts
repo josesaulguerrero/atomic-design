@@ -1,6 +1,6 @@
-import { ChatPreview } from 'src/app/modules/core/models/chat.model';
+import { Chat } from 'src/app/modules/core/models/chat.model';
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -10,16 +10,19 @@ import { FormControl } from '@angular/forms';
 })
 export class InboxComponent {
 	@Input()
-	public chats: ChatPreview[] = [];
+	public chats: Chat[] = [];
 
 	@Output()
 	public addContact: EventEmitter<boolean>;
 
+	@Output()
+	public switchChat: EventEmitter<string>;
+
 	public searchBar = new FormControl('', { nonNullable: true });
 
-	public get filteredChats(): ChatPreview[] {
+	public get filteredChats(): Chat[] {
 		return this.chats.filter((chat) =>
-			chat.title
+			chat.details.name
 				.toLocaleLowerCase()
 				.includes(this.searchBar.value.toLocaleLowerCase()),
 		);
@@ -27,9 +30,14 @@ export class InboxComponent {
 
 	public constructor() {
 		this.addContact = new EventEmitter();
+		this.switchChat = new EventEmitter();
 	}
 
 	public onAddContact(): void {
 		this.addContact.emit(true);
+	}
+
+	public onSwitchChat(chatId: string): void {
+		this.switchChat.emit(chatId);
 	}
 }

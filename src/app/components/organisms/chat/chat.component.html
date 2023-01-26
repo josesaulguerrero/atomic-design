@@ -6,7 +6,7 @@
 	<section class="messages" #messagesList>
 		<app-message
 			class="message"
-			*ngFor="let message of chat.messages"
+			*ngFor="let message of sortedMessages"
 			[message]="message"
 			[incoming]="message.receiverId == localUserId"
 			[ngClass]="[message.receiverId == localUserId ? 'incoming' : 'outgoing']"
